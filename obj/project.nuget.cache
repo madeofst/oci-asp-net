@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tuqGbbuBmuVua0OIu5ziipYsOAFscDrgcDPYxlQomC3Vxddp+EI/wkmW2qVOwQh8qYS+gFvTlk2yqktan3QE8Q==",
+  "dgSpecHash": "kCtHAVp/pLs7WWPAqC8phYDKsH63GOpcoPFShi3Jb5YHULE4Sak+Q8qHf4Bbs6OlMmZVCPg7o88O+iXyTj13dA==",
   "success": true,
-  "projectFilePath": "C:\\git\\testgit\\testgit.csproj",
+  "projectFilePath": "c:\\Users\\Mike\\dev\\OracleDbInfrastructureAutomation\\oci-asp-net\\testgit.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

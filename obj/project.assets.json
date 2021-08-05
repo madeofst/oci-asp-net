@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\opc\\.nuget\\packages\\": {}
+    "C:\\Users\\Mike\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\git\\testgit\\testgit.csproj",
+      "projectUniqueName": "c:\\Users\\Mike\\dev\\OracleDbInfrastructureAutomation\\oci-asp-net\\testgit.csproj",
       "projectName": "testgit",
-      "projectPath": "C:\\git\\testgit\\testgit.csproj",
-      "packagesPath": "C:\\Users\\opc\\.nuget\\packages\\",
-      "outputPath": "C:\\git\\testgit\\obj\\",
+      "projectPath": "c:\\Users\\Mike\\dev\\OracleDbInfrastructureAutomation\\oci-asp-net\\testgit.csproj",
+      "packagesPath": "C:\\Users\\Mike\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\Mike\\dev\\OracleDbInfrastructureAutomation\\oci-asp-net\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\opc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mike\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.205\\RuntimeIdentifierGraph.json"
       }
     }
   }
