@@ -35,6 +35,8 @@ jobs:
       run: cat ~/.oci/key.pem
     - name: Setup terraform
       uses: hashicorp/setup-terraform@v1
+      with: 
+        terraform_version: 0.12.25
     - name: Perform terraform apply
       run: cd windows-lb && terraform init && terraform apply -auto-approve
     - name: Perform terraform taint operation
