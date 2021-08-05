@@ -19,7 +19,7 @@ variable "show_advanced" {
 }
 
 variable "deploy_db_tier" {
-  default = true
+  default = false
 }
 
 variable "instance_password" {}
