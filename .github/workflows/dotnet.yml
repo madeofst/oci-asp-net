@@ -30,9 +30,9 @@ jobs:
     - name: Move App.zip to windows-lb/userdata folder
       run: mv App.zip windows-lb/userdata/
     - name: Write Config & Key Files
-      run: mkdir ~/.oci && echo "${{secrets.OCI_KEY_FILE}}" >> ~/.oci/key.pem
+      run: mkdir ~/.oci && echo "${{secrets.OCI_KEY_FILE}}" >> ~/.oci/oci_api_key.pem
     - name: logging key
-      run: cat ~/.oci/key.pem
+      run: cat ~/.oci/oci_api_key.pem
     - name: Setup terraform
       uses: hashicorp/setup-terraform@v1
     - name: Perform terraform apply
