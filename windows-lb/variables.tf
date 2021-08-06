@@ -1,116 +1,118 @@
-## Copyright © 2021, Oracle and/or its affiliates. 
-## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
+variable "ocpus" {
+  description = "The number of OCPUs to assign to the instance. Must be between 1 and 4."
+  type        = number
+  default     = 1
 
-# Authentcation variables to be commented when using ORM
+  validation {
+    condition     = var.ocpus >= 1
+    error_message = "The value of ocpus must be greater than or equal to 1."
+  }
+
+  validation {
+    condition     = var.ocpus <= 4
+    error_message = "The value of ocpus must be less than or equal to 4 to remain in the free tier."
+  }
+}
+
+variable "memory_in_gbs" {
+  description = "The amount of memory in GB to assign to the instance. Must be between 1 and 24."
+  default     = 6
+
+  validation {
+    condition     = var.memory_in_gbs >= 1
+    error_message = "The value of memory_in_gbs must be greater than or equal to 1."
+  }
+
+  validation {
+    condition     = var.memory_in_gbs <= 24
+    error_message = "The value of memory_in_gbs must be less than or equal to 24 to remain in the free tier."
+  }
+}
+
+variable "boot_volume_size_in_gbs" {
+  description = "A custom size for the boot volume. Must be between 50 and 200. If not set, defaults to the size of the image which is around 46 GB."
+  default     = null
+
+  validation {
+    condition     = var.boot_volume_size_in_gbs == null ? true : var.boot_volume_size_in_gbs >= 50
+    error_message = "The value of boot_volume_size_in_gbs must be greater than or equal to 50."
+  }
+
+  validation {
+    condition     = var.boot_volume_size_in_gbs == null ? true : var.boot_volume_size_in_gbs <= 200
+    error_message = "The value of boot_volume_size_in_gbs must be less than or equal to 200 to remain in the free tier."
+  }
+}
+
+variable "hostname" {
+  description = "The hostname of the instance."
+  type        = string
+  default     = ""
+}
+
+variable "compartment_id" {
+  description = "The OCID of the compartment containing the instance."
+  type        = string
+}
+
+variable "availability_domain" {
+  description = "The availability domain of the instance."
+  type        = string
+  default     = ""
+}
+
+variable "operating_system" {
+  description = "The Operating System of the platform image to use. Valid values are \"Canonical Ubuntu\", \"Oracle Linux\", or \"Oracle Linux Cloud Developer\"."
+  type        = string
+
+  validation {
+    condition     = contains(["Canonical Ubuntu", "Oracle Linux", "Oracle Linux Cloud Developer"], var.operating_system)
+    error_message = "The value of operating_system must be one of \"Canonical Ubuntu\", \"Oracle Linux\", or \"Oracle Linux Cloud Developer\"."
+  }
+}
+
+variable "operating_system_version" {
+  description = "The version of the Operating System specified in `operating_system`."
+  type        = string
+}
+
+variable "subnet_id" {
+  description = "The OCID of the subnet to create the VNIC in."
+  type        = string
+}
+
+variable "ssh_authorized_keys" {
+  description = "The public SSH key(s) that should be authorized for the default user."
+  type        = string
+}
+
+variable "user_data" {
+  description = "User data passed to cloud-init when the instance is started. Defaults to `null`."
+  type        = string
+  default     = null
+}
+
+variable "assign_public_ip" {
+  description = "Whether or not a public IP should be assigned to the instance.  Defaults to `null` which assigns a public IP based on whether the subnet is public or private. The Free Tier only includes 2 public IP addresses so you may need to set this to `false`."
+  type        = bool
+  default     = null
+}
+
+variable "assign_ipv6_address" {
+  description = "Whether or not an IPv6 address should be assigned to the instance. Requires a subnet with IPv6 enabled. Defaults to `false`."
+  type        = bool
+  default     = false
+}
+
+variable "nsg_ids" {
+  description = "A list of Network Security Group OCIDs to attach to the primary vnic."
+  type        = list(string)
+  default     = []
+}
+
+variable "tenancy_ocid" {}
 variable "user_ocid" {}
 variable "fingerprint" {}
 variable "private_key_path" {}
 variable "region" {}
-
-variable "tenancy_ocid" {}
-variable "compartment_ocid" {}
-
-variable "availablity_domain_name" {
-  default = ""
-}
-
-variable "show_advanced" {
-  default = false
-}
-
-variable "deploy_db_tier" {
-  default = false
-}
-
 variable "instance_password" {}
-
-variable "release" {
-  description = "Reference Architecture Release (OCI Architecture Center)"
-  default     = "1.0"
-}
-
-variable "lb_shape" {
-  default = "flexible"
-}
-
-variable "flex_lb_min_shape" {
-  default = "10"
-}
-
-variable "flex_lb_max_shape" {
-  default = "100"
-}
-
-variable "instance_shape" {
-  default = "VM.Standard2.1"
-}
-
-variable "shape_flex_ocpus" {
-  default = 1
-}
-
-variable "shape_flex_memory" {
-  default = 10
-}
-
-variable "instance_name" {
-  default = "TFWindows"
-}
-
-variable "userdata" {
-  default = "userdata"
-}
-
-variable "cloudinit_ps1" {
-  default = "cloudinit.ps1"
-}
-
-variable "cloudinit_config" {
-  default = "cloudinit.yml"
-}
-
-variable "index_html" {
-  default = "index.html"
-}
-
-variable "image_os" {
-  default = "Windows"
-}
-variable "image_os_version" {
-  default = "Server 2012 R2 Standard"
-}
-
-variable "vcn_cidr" {
-  default = "10.1.0.0/16"
-}
-
-variable "subnet1_cidr" {
-  default = "10.1.20.0/24"
-}
-
-variable "subnet2_cidr" {
-  default = "10.1.21.0/24"
-}
-
-variable "mssql_primary_shape" {
-  default = "VM.Standard2.2"
-}
-
-variable "mssql_standby_shape" {
-  default = "VM.Standard2.2"
-}
-
-# Dictionary Locals
-locals {
-  compute_flexible_shapes = [
-    "VM.Standard.E3.Flex",
-    "VM.Standard.E4.Flex",
-    "VM.Optimized3.Flex"
-  ]
-}
-
-# Checks if is using Flexible Compute Shapes
-locals {
-  is_flexible_node_shape = contains(local.compute_flexible_shapes, var.instance_shape)
-  is_flexible_lb_shape   = var.lb_shape == "flexible" ? true : false
-}
