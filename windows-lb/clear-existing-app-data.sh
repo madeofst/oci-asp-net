@@ -1,0 +1,2 @@
+rm -r userdata
+exit
