@@ -24,9 +24,9 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: dotnet publish
-      run: dotnet publish -c Release -o mvctest
+      run: dotnet publish -c Release -o testgit
     - name: Zip Folder
-      run: zip -r App.zip mvctest/*
+      run: zip -r App.zip testgit/*
     - name: Move App.zip to windows-lb/userdata folder
       run: mv App.zip windows-lb/userdata/
     - name: Write Config & Key Files
