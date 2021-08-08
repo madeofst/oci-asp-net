@@ -5,8 +5,8 @@ WorkingDirectory=/var/netcore
 ExecStart=/usr/bin/dotnet /var/netcore/testgit.dll  
 Restart=always  
 RestartSec=10  
-SyslogIdentifier=netcore-testgit  
+SyslogIdentifier=netcore-demo 
 User=www-data  
-Environment=ASPNETCORE_ENVIRONMENT=Development  
+Environment=ASPNETCORE_ENVIRONMENT=Production  
 [Install]  
 WantedBy=multi-user.target

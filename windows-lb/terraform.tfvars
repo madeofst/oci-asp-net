@@ -18,7 +18,7 @@ subnet_id            = "ocid1.subnet.oc1.uk-london-1.aaaaaaaauozao3wtcvyx76ao6au
 
 # Operating System
 operating_system     = "Canonical Ubuntu"
-operating_system_version = "21.04"
+operating_system_version = ""
 
 # Availablity Domain 
 availability_domain = "FVYf:UK-LONDON-1-AD-1"
