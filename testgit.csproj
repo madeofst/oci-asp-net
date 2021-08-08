@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <DefaultItemExcludes>
+      $(DefaultItemExcludes);windows-lb/**;
+    </DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>

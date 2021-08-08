@@ -3,10 +3,15 @@ wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.
 sudo dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
 
-#Install the runtime
-sudo snap install --channel=5.0/edge dotnet-sdk --classic
-sudo snap alias dotnet-sdk.dotnet dotnet
-export DOTNET_ROOT=/snap/dotnet-sdk/current
+#Install the runtime (ms docs version)
+sudo snap install dotnet-runtime-50 --classic
+sudo snap alias dotnet-runtime-50.dotnet dotnet
+export DOTNET_ROOT=/snap/dotnet-runtime-50/current
+
+#Install the sdk (alt version)
+#sudo snap install --channel=5.0/edge dotnet-sdk --classic
+#sudo snap alias dotnet-sdk.dotnet dotnet
+#export DOTNET_ROOT=/snap/dotnet-sdk/current
 
 sudo apt-get update
 sudo apt-get install apache2 -y
