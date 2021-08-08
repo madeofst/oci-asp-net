@@ -3,12 +3,12 @@ Description=ASP
 
 [Service]  
 WorkingDirectory=/var/www/testgit  
-ExecStart=/usr/bin/dotnet /var/www/testgit/testgit.dll  
+ExecStart=/usr/local/bin/dotnet /var/www/testgit/testgit.dll  
 Restart=always  
 RestartSec=10
 KillSignal=SIGINT  
 SyslogIdentifier=netcore-demo 
-User=www-data  
+User=ubuntu  
 Environment=ASPNETCORE_ENVIRONMENT=Production  
 [Install]  
 WantedBy=multi-user.target

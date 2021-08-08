@@ -26,7 +26,7 @@ sudo a2enmod ssl
 sudo a2enmod rewrite
 
 #move prewritten config file
-sudo cp userdata/apache/netcore.conf /etc/apache2/sites-enabled/
+sudo cp userdata/apache/netcore.conf /etc/apache2/conf-enabled/
 
 # restart and test apache
 sudo service apache2 restart
@@ -38,14 +38,18 @@ sudo netfilter-persistent save
 
 #copy the application files into the www
 sudo cp -a ~/userdata/testgit /var/www/
-sudo chown -R www-data:www-data /var/www/testgit
+#sudo chown -R www-data:www-data /var/www/testgit - leave user as ubuntu
 
+# copy the service definitition file
 sudo cp ~/userdata/apache/ServiceFile.service /etc/systemd/system/
 
 sudo systemctl enable ServiceFile.service
 sudo systemctl stop ServiceFile.service
 sudo systemctl start ServiceFile.service
-sudo systemctl status ServiceFile.service
 
 sudo systemctl restart apache2
-exit
+
+sudo apachectl configtest
+sudo systemctl status ServiceFile.service
+
+#exit
