@@ -48,15 +48,10 @@ else
     wget -q https://download.visualstudio.microsoft.com/download/pr/36c6210a-5b28-4598-81f7-2cef1a0bd1d5/296782726e68368c8ddf87ba828b5fc7/aspnetcore-runtime-5.0.8-linux-arm64.tar.gz
 fi
 
-DIRECTORY=dotnet-64
-if [ -d "$DIRECTORY" ]; then
-    echo "$DIRECTORY exists."
-else
-    mkdir dotnet-64
-    tar zxf aspnetcore-runtime-5.0.8-linux-arm64.tar.gz -C $HOME/dotnet-64
-    export DOTNET_ROOT=$HOME/dotnet-64
-    export PATH=$HOME/dotnet-64:$PATH
-fi
+mkdir dotnet-64
+tar zxf aspnetcore-runtime-5.0.8-linux-arm64.tar.gz -C /home/ubuntu/dotnet-64
+export DOTNET_ROOT=/home/ubuntu/dotnet-64
+export PATH=/home/ubuntu/dotnet-64:$PATH
 
 #install dependencies
 sudo apt-get install libc6-dev

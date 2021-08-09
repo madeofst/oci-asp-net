@@ -26,7 +26,7 @@ jobs:
     - name: dotnet publish
       run: dotnet publish -c Release -o webapp
     - name: Move publish directory
-      run: mv webapp windows-lb\userdata\
+      run: mv webapp windows-lb/userdata/
     - name: Write API access key
       run: mkdir ~/.oci && echo "${{secrets.OCI_KEY_FILE}}" >> ~/.oci/oci_api_key.pem
     - name: Write instance access key
