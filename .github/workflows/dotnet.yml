@@ -28,9 +28,9 @@ jobs:
     - name: Move publish directory
       run: mv webapp windows-lb\userdata\
     - name: Write API access key
-      run: mkdir ~/.oci && echo "${{secrets.OCI_KEY_FILE}}" >> ~/.oci/oci_api_key.pem
+      run: mkdir ~/.oci && echo "${{secrets.OCI_KEY_FILE}}" >> /home/runner/.oci/oci_api_key.pem
     - name: Write instance access key
-      run: mkdir ~/.ssh && echo "${{secrets.OCI_INSTANCE_FILE}}" >> ~/.ssh/oci_instance
+      run: mkdir ~/.ssh && echo "${{secrets.OCI_INSTANCE_FILE}}" >> /home/runner/.ssh/oci_instance
     - name: Assign key to environment variable
       run: OCI_INSTANCE_KEY=$(cat ~/.ssh/oci_instance)
     - name: Print instance key
