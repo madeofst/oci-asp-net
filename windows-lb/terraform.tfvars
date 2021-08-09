@@ -11,7 +11,8 @@ oci_instance_key     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCBrj+z8pjXVfqntQNU
 region = "uk-london-1"
 
 # Host Name
-hostname             = "miketerra"
+# hostname             = "miketerra"
+hostname             = "miketerra_yaml"
 subnet_id            = "ocid1.subnet.oc1.uk-london-1.aaaaaaaauozao3wtcvyx76ao6auepxyfahyfvmlkecndrpofndp5caqarlga"
 
 # Operating System
