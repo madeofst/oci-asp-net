@@ -32,7 +32,7 @@ jobs:
     - name: Write instance access key
       run: mkdir ~/.ssh && echo "${{secrets.OCI_INSTANCE_FILE}}" >> ~/.ssh/oci_instance
     - name: Assign key to environment variable
-      run: OCI_INSTANCE_KEY=$(cat ~/.oci/oci_instance)
+      run: OCI_INSTANCE_KEY=$(cat ~/.ssh/oci_instance)
     - name: Print instance key
       run: echo $OCI_INSTANCE_KEY
     - name: Setup terraform
