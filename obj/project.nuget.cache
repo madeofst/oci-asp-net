@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qksJeMJBH9RpAykAx9eiMnFWcwlxcQJlY9SMmeaosF4qtGQQGAdqkqzlPTkzGzpKz7J2pXvcBOQ0iLhd/nnjFg==",
+  "dgSpecHash": "acyczcgeM6LEn1JAFHbWn9FhtiTcMrleDmoqmtmaoOc/YrwMu/lwTdNsF5PSYHuYknKGtq1vBpSjOWWcFgCMmg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\dev\\oci-asp-net\\testgit.csproj",
+  "projectFilePath": "C:\\Users\\user\\dev\\oci-asp-net\\webapp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",

@@ -2,8 +2,8 @@
 Description=ASP
 
 [Service]
-WorkingDirectory=/var/www/testgit
-ExecStart=/user/local/bin/dotnet /var/www/testgit/testgit.dll
+WorkingDirectory=/var/www/webapp
+ExecStart=/home/ubuntu/dotnet-64/dotnet /var/www/webapp/webapp.dll
 Restart=always
 RestartSec=10
 KillSignal=SIGINT

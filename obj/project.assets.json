@@ -504,9 +504,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\dev\\oci-asp-net\\testgit.csproj",
-      "projectName": "testgit",
-      "projectPath": "C:\\Users\\user\\dev\\oci-asp-net\\testgit.csproj",
+      "projectUniqueName": "C:\\Users\\user\\dev\\oci-asp-net\\webapp.csproj",
+      "projectName": "webapp",
+      "projectPath": "C:\\Users\\user\\dev\\oci-asp-net\\webapp.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\user\\dev\\oci-asp-net\\obj\\",
       "projectStyle": "PackageReference",

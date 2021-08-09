@@ -1,7 +1,7 @@
 variable "ocpus" {
   description = "The number of OCPUs to assign to the instance. Must be between 1 and 4."
   type        = number
-  default     = 1
+  default     = 2
 
   validation {
     condition     = var.ocpus >= 1
@@ -16,7 +16,7 @@ variable "ocpus" {
 
 variable "memory_in_gbs" {
   description = "The amount of memory in GB to assign to the instance. Must be between 1 and 24."
-  default     = 6
+  default     = 12
 
   validation {
     condition     = var.memory_in_gbs >= 1
