@@ -34,7 +34,7 @@ jobs:
     - name: Setup terraform
       uses: hashicorp/setup-terraform@v1
     - name: Perform terraform apply
-      run: cd windows-lb && terraform init && terraform apply -var="ssh_authorised_keys="$(cat ~/.oci/oci_instance)""" -auto-approve
+      run: cd windows-lb && terraform init && terraform apply -var="ssh_authorised_keys="$(cat ~/.oci/oci_instance)"" -auto-approve
     - name: Get host username and IP
       run: $hostuserip =("ubuntu@" + $(terraform output --raw public_ip))
     - name: Print user name and IP
