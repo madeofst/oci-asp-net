@@ -81,11 +81,6 @@ variable "subnet_id" {
   type        = string
 }
 
-variable "ssh_authorized_keys" {
-  description = "The public SSH key(s) that should be authorized for the default user."
-  type        = string
-}
-
 variable "user_data" {
   description = "User data passed to cloud-init when the instance is started. Defaults to `null`."
   type        = string
