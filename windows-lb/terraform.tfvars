@@ -12,7 +12,7 @@ region = "uk-london-1"
 
 # Host Name
 # hostname             = "miketerra"
-hostname             = "miketerra_yaml"
+hostname             = "miketerrayaml"
 subnet_id            = "ocid1.subnet.oc1.uk-london-1.aaaaaaaauozao3wtcvyx76ao6auepxyfahyfvmlkecndrpofndp5caqarlga"
 
 # Operating System
