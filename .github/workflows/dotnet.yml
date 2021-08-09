@@ -27,8 +27,9 @@ jobs:
       run: dotnet publish -c Release -o webapp
     - name: Move publish directory
       run: mv webapp windows-lb\userdata\
-    - name: Write Config & Key Files
+    - name: Write API access key
       run: mkdir ~/.oci && echo "${{secrets.OCI_KEY_FILE}}" >> ~/.oci/oci_api_key.pem
+    - name: Write instance access key
       run: mkdir ~/.ssh && echo "${{secrets.OCI_INSTANCE_FILE}}" >> ~/.oci/oci_instance
     - name: Setup terraform
       uses: hashicorp/setup-terraform@v1
@@ -36,4 +37,5 @@ jobs:
       run: cd windows-lb && terraform init && terraform apply -auto-approve
     - name: Get host username and IP
       run: $hostuserip =("ubuntu@" + $(terraform output --raw public_ip))
+    - name: Print user name and IP
       run: echo $hostuserip
