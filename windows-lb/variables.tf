@@ -84,7 +84,6 @@ variable "subnet_id" {
 variable "ssh_authorized_keys" {
   description = "The public SSH key(s) that should be authorized for the default user."
   type        = string
-  default     = file("~/.oci/oci_instance")
 }
 
 variable "user_data" {
