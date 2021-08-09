@@ -30,7 +30,7 @@ jobs:
     - name: Write API access key
       run: mkdir ~/.oci && echo "${{secrets.OCI_KEY_FILE}}" >> ~/.oci/oci_api_key.pem
     - name: Write instance access key
-      run: mkdir ~/.ssh && echo "${{secrets.OCI_INSTANCE_FILE}}" >> ~/.oci/oci_instance
+      run: mkdir ~/.ssh && echo "${{secrets.OCI_INSTANCE_FILE}}" >> ~/.ssh/oci_instance
     - name: Assign key to environment variable
       run: OCI_INSTANCE_KEY=$(cat ~/.oci/oci_instance)
     - name: Print instance key
