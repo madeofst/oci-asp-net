@@ -117,3 +117,7 @@ variable "fingerprint" {}
 variable "private_key_path" {}
 variable "region" {}
 variable "instance_password" {}
+variable "instance_key_path"{
+  description = "Path to the local file which holds the private key to the instance." 
+  type = string
+}

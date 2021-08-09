@@ -7,6 +7,10 @@ data "oci_core_images" "os" {
   sort_order               = "DESC"
 }
 
+data "local_file" "oci_instance_key" {
+    filename = var.instance_key_path
+}
+
 resource "oci_core_instance" "a1" {
   availability_domain = var.availability_domain
   compartment_id      = var.compartment_id
@@ -32,7 +36,7 @@ resource "oci_core_instance" "a1" {
   }
 
   metadata = {
-    ssh_authorized_keys = var.ssh_authorized_keys
+    ssh_authorized_keys = data.local_file.oci_instance_key.content
     user_data           = var.user_data
   }
 }
@@ -46,3 +50,4 @@ resource "oci_core_ipv6" "ipv6_address" {
   count   = var.assign_ipv6_address ? 1 : 0
   vnic_id = data.oci_core_vnic_attachments.a1_vnic_attachments.vnic_attachments[0].vnic_id
 }
+

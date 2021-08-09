@@ -6,7 +6,7 @@ fingerprint          = "e8:56:58:11:81:db:03:e5:a8:62:a1:f1:39:44:b0:18"
 private_key_path     = "~/.oci/oci_api_key.pem"
 instance_password    = ""
 
-# ssh_authorized_keys  = "~/.ssh/oci_instance"
+instance_key_path  = "~/.ssh/oci_instance"
 
 # Region
 region = "uk-london-1"
