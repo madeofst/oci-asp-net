@@ -2,9 +2,9 @@ name: .NET
 
 on:
   push:
-    branches: [ main ]
+    branches: [ local-deploy-to-ubuntu-apache ]
   pull_request:
-    branches: [ main ]
+    branches: [ local-deploy-to-ubuntu-apache ]
 
 jobs:
   build:
@@ -25,32 +25,4 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: dotnet publish
       run: dotnet publish -c Release -o testgit
-    - name: Zip Folder
-      run: zip -r App.zip testgit/*
-    - name: Move App.zip to windows-lb/userdata folder
-      run: mv App.zip windows-lb/userdata/
-    - name: Write Config & Key Files
-      run: mkdir ~/.oci && echo "${{secrets.OCI_KEY_FILE}}" >> ~/.oci/oci_api_key.pem
-    - name: logging key
-      run: cat ~/.oci/oci_api_key.pem
-    - name: Setup terraform
-      uses: hashicorp/setup-terraform@v1
-    - name: Perform terraform apply
-      run: cd windows-lb && terraform init && terraform apply -auto-approve
-    - name: Perform terraform taint operation
-      run: cd windows-lb && terraform taint null_resource.remote-exec-windows1_1[0] && terraform taint null_resource.remote-exec-windows1_2  && terraform taint null_resource.remote-exec-windows2_1[0] && terraform taint null_resource.remote-exec-windows2_2
-    - name: Commit files
-      run: |
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git add windows-lb/terraform.tfstate
-        git commit -m "Add tfstate change finally"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{secrets.GITHUB_TOKEN}}
-        branch: ${{ github.ref }}
-    - run: echo ${{ steps.plan.outputs.stdout }}
-    - run: echo ${{ steps.plan.outputs.stderr }}
-    - run: echo ${{ steps.plan.outputs.exitcode }}
         
