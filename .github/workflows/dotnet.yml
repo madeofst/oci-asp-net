@@ -24,5 +24,16 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: dotnet publish
-      run: dotnet publish -c Release -o testgit
-        
+      run: dotnet publish -c Release -o webapp
+    - name: Move publish directory
+      run: mv webapp windows-lb\userdata\
+    - name: Write Config & Key Files
+      run: mkdir ~/.oci && echo "${{secrets.OCI_KEY_FILE}}" >> ~/.oci/oci_api_key.pem
+      run: mkdir ~/.ssh && echo "${{secrets.OCI_INSTANCE_FILE}}" >> ~/.oci/oci_instance
+    - name: Setup terraform
+      uses: hashicorp/setup-terraform@v1
+    - name: Perform terraform apply
+      run: cd windows-lb && terraform init && terraform apply -auto-approve
+    - name: Get host username and IP
+      run: $hostuserip =("ubuntu@" + $(terraform output --raw public_ip))
+      run: echo $hostuserip
