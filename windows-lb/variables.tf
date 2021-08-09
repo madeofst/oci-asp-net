@@ -108,10 +108,13 @@ variable "nsg_ids" {
 variable "tenancy_ocid" {}
 variable "user_ocid" {}
 variable "fingerprint" {}
-variable "private_key_path" {}
 variable "region" {}
-variable "instance_password" {}
-variable "instance_key_path"{
-  description = "Path to the local file which holds the private key to the instance." 
+variable "instance_password" {
+  type = string
+  default = ""
+}
+variable "private_key_path" {}
+variable "oci_instance_key" {
+  description = "Public key to attach to the instance" 
   type = string
 }

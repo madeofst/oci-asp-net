@@ -7,10 +7,6 @@ data "oci_core_images" "os" {
   sort_order               = "DESC"
 }
 
-data "local_file" "oci_instance_key" {
-    filename = var.instance_key_path
-}
-
 resource "oci_core_instance" "a1" {
   availability_domain = var.availability_domain
   compartment_id      = var.compartment_id
@@ -36,7 +32,7 @@ resource "oci_core_instance" "a1" {
   }
 
   metadata = {
-    ssh_authorized_keys = data.local_file.oci_instance_key.content
+    ssh_authorized_keys = var.oci_instance_key
     user_data           = var.user_data
   }
 }
