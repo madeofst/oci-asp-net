@@ -40,6 +40,6 @@ jobs:
     - name: Perform terraform apply
       run: cd windows-lb && terraform init && terraform apply -auto-approve
     - name: Get host username and IP
-      run: $hostuserip =("ubuntu@" + $(terraform output --raw public_ip))
+      run: hostuserip=$("ubuntu@" + $(terraform output --raw public_ip))
     - name: Print user name and IP
       run: echo $hostuserip
