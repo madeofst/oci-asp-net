@@ -2,9 +2,9 @@ name: .NET
 
 on:
   push:
-    branches: [ local-deploy-to-ubuntu-apache ]
+    branches: [ branch ]
   pull_request:
-    branches: [ local-deploy-to-ubuntu-apache ]
+    branches: [ branch ]
 
 jobs:
   build:
